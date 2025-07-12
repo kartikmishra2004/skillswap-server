@@ -55,4 +55,4 @@ npm run dev
 
 ## API Documentation
 
-API endpoints and usage instructions can be found in the [API Docs](./docs/API.md)
+API endpoints and usage instructions can be found in the [API Docs](API_DOCUMENTATION.md)
