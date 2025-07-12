@@ -55,3 +55,12 @@ npm run dev
 ## API Documentation
 
 API endpoints and usage instructions can be found in the [API Docs](API_DOCUMENTATION.md)
+
+# Team
+
+## Team Name: DevClusters
+
+- Member 1: Mohit Patil (mohitpatil2005.mp@gmail.com)
+- Member 2: Kartik Mishra (kartik2611mishra@gmail.com)
+- Member 3: Anandu Balakrishnan (anandubala1809@gmail.com)
+- Member 4: Anushika Jain (jainanushika31@gmail.com)
