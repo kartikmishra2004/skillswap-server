@@ -16,7 +16,6 @@ SkillSwap Server is a backend service for managing and facilitating skill exchan
 - Node.js
 - Express.js
 - MongoDB
-- React.js
 - JavaScript
 
 ## Getting Started
