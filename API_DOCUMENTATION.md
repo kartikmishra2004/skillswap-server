@@ -267,6 +267,118 @@ GET /api/users/skills/offered
 }
 ```
 
+### Get Matched Users (Home Page)
+```http
+GET /api/users/matches?page=1&limit=10&location=NY&availability=weekends
+```
+
+**Headers:** `Authorization: Bearer <token>`
+
+**Query Parameters:**
+- `page` (optional): Page number (default: 1)
+- `limit` (optional): Results per page (default: 10)
+- `location` (optional): Filter by location
+- `availability` (optional): Filter by availability (weekdays, weekends, evenings, mornings)
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "user-id",
+      "name": "Jane Smith",
+      "location": "New York, NY",
+      "profilePhoto": "/uploads/profiles/photo.jpg",
+      "skillsOffered": [...],
+      "skillsWanted": [...],
+      "averageRating": 4.8,
+      "totalRatings": 15,
+      "compatibilityScore": 18.5,
+      "scoreBreakdown": {
+        "skillMatch": 15.2,
+        "mutualBenefit": 12.8,
+        "ratingBonus": 9.6,
+        "activityBonus": 8.5,
+        "locationBonus": 5.0
+      }
+    }
+  ],
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 5,
+    "totalUsers": 50,
+    "hasNext": true,
+    "hasPrev": false
+  },
+  "currentUser": {
+    "id": "current-user-id",
+    "skillsOffered": [...],
+    "skillsWanted": [...]
+  }
+}
+```
+
+### Get Detailed Match Information
+```http
+GET /api/users/:id/match-details
+```
+
+**Headers:** `Authorization: Bearer <token>`
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": {
+    "user": {
+      "id": "user-id",
+      "name": "Jane Smith",
+      "skillsOffered": [...],
+      "skillsWanted": [...],
+      "averageRating": 4.8
+    },
+    "compatibilityScore": 18.5,
+    "scoreBreakdown": {
+      "skillMatch": 15.2,
+      "mutualBenefit": 12.8,
+      "ratingBonus": 9.6,
+      "activityBonus": 8.5,
+      "locationBonus": 5.0
+    },
+    "skillMatches": {
+      "youCanTeach": [
+        {
+          "skill": "JavaScript",
+          "yourLevel": "advanced",
+          "theirPriority": "high",
+          "theirDescription": "Looking to learn web development"
+        }
+      ],
+      "theyCanTeach": [
+        {
+          "skill": "Python",
+          "theirLevel": "intermediate",
+          "yourPriority": "medium",
+          "yourDescription": "Want to learn data science"
+        }
+      ],
+      "mutualMatches": [
+        {
+          "skill": "React",
+          "yourLevel": "advanced",
+          "theirLevel": "intermediate"
+        }
+      ]
+    },
+    "currentUserSkills": {
+      "offered": [...],
+      "wanted": [...]
+    }
+  }
+}
+```
+
 ---
 
 ## 🔄 Swap Request Endpoints
